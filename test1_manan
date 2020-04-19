@@ -1,9 +1,9 @@
 ###Ans1
 #code
 
-Dockerfile.txt
 FROM alpine
 MAINTAINER manan@gmail.com
+ENTRYPOINT date +%T
 
 #building image:
 docker build -t alpine:manan -f Dockerfile .
@@ -16,9 +16,6 @@ docker start mananc1q1
 
 for see output:
 docker run -it alpine:manan sh
-/#ls
-/#cat question1.txt
-
 
 
 ##Ans 2
@@ -90,3 +87,4 @@ docker volume create mananq5
 
 #attaching volume to container:
 docker run -it --name mananjain5q5 -v mananq5:/etc/passwd- -v mananq5:/adhocvol/user.txt alpine sh
+wc -l user.txt > /adhocvol/usercount.txt
