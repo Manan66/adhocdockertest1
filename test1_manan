@@ -1,0 +1,21 @@
+##Ans 2
+
+#step 1: firstly we need a docker hub account to push it.
+#step2: seee the docker images
+#step 3: create your own docker image
+#step4: again see the docker images,as your image will be present their.
+#step 5:tag that docker image into your docker id
+#step6:login into your docker account.
+#step 7: push it into your docker account
+#step 8: logout for your safety.
+#step 9: open your docker account and see their tht your image has been pulled their.
+
+# code:
+docker images
+docker build -t adhoc:manan https://github.com/Manan66/Demodocker.git
+docker tag adhoc:manan   manan3349/adhoc:manan
+docker images
+docker login
+docker push manan3349/adhoc:manan
+docker pull manan3349/adhoc:manan
+docker logout
