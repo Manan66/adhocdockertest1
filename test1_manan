@@ -1,3 +1,26 @@
+###Ans1
+#code
+
+Dockerfile.txt
+FROM alpine
+MAINTAINER manan@gmail.com
+
+#building image:
+docker build -t alpine:manan -f Dockerfile .
+
+run container:
+docker run --name mananc1q1  -d alpine:manan sh date+%T>question1.txt
+
+starting container:
+docker start mananc1q1
+
+for see output:
+docker run -it alpine:manan sh
+/#ls
+/#cat question1.txt
+
+
+
 ##Ans 2
 
 #step 1: firstly we need a docker hub account to push it.
@@ -19,3 +42,51 @@ docker login
 docker push manan3349/adhoc:manan
 docker pull manan3349/adhoc:manan
 docker logout
+
+
+###Ans 3
+#1 pulling image
+#2building container
+
+#code:
+docker pull dockerashu/ckad:v2
+docker run --name mananjainc3q3 -p 1345:80 -d dockerashu/ckad:v2
+
+###Ans 4
+#1 first see the images
+#2 create a docker image
+#3see the image
+#4 build container with tht image
+#5 see the container
+#6 then we need to port it so tht we can access it from anywhere
+#7 go to browser and type 127.0.0.1:5656
+
+#code:
+
+DOCKERFILE:
+FROM centos 
+MAINTAINER manan@gmail.com
+RUN yum install httpd -y
+RUN mkdir /mycode
+COPY index.html /mycode/index.html
+copy mycode  /var/www/html
+EXPOSE 80
+ENTRYPOINT httpd -DFOREGROUND
+
+#Building image:
+docker build -t :q4 -f Dockerfile .
+
+#creating container:
+docker run --name mananq4 -itd -p 4521:80 manan:q4
+
+#Accessing web page:
+52.204.127.145:4521
+
+
+###Ans 5
+
+#creating volume
+docker volume create mananq5
+
+#attaching volume to container:
+docker run -it --name mananjain5q5 -v mananq5:/etc/passwd- -v mananq5:/adhocvol/user.txt alpine sh
